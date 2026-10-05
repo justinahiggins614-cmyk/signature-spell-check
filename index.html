@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Signature Spell Check — Website 36</title>
+<meta name="description" content="The Signature Spell Check: type a word or a whole document, get every misspelling flagged with smart suggestions. It learns your word patterns. Free, on this site or downloaded.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="brand">
+  <h1><span class="pen">✒</span> The Signature Spell Check</h1>
+  <p>Type a word or a whole document — every misspelling gets caught, with suggestions that learn you.</p>
+  <div class="countchip"><b id="wordcount">…</b> words known · marching to 1,000,000</div>
+</header>
+<nav class="jtabbar" aria-label="Site sections">
+  <a class="on" href="index.html">🏠 Front Door</a>
+  <a href="download.html">⬇ Download Tool</a>
+  <a href="guide.html">📖 How to Use</a>
+  <a href="words.html">📚 Word Archive</a>
+</nav>
+<main id="main">
+  <div id="flash" class="card" style="display:none" role="status"></div>
+
+  <section class="card" aria-label="Check a word">
+    <h2><span class="n">1</span>Check a word</h2>
+    <div class="typebar">
+      <input id="typebar" type="text" autocomplete="off" autocapitalize="off" placeholder="Type a word…" aria-label="Type a word to check">
+      <button class="btn" id="typego" type="button">Check</button>
+    </div>
+    <div class="result" id="typeresult" role="status"></div>
+  </section>
+
+  <section class="card" aria-label="Check a document">
+    <h2><span class="n">2</span>Check your document</h2>
+    <p style="margin-top:0">Type or paste the whole thing. Misspellings get the red wavy underline as you type — tap one for suggestions.</p>
+    <div class="docwrap">
+      <div class="overlay" id="overlay" aria-hidden="true"></div>
+      <textarea id="doc" spellcheck="false" autocomplete="off" autocapitalize="sentences" aria-label="Your document"></textarea>
+    </div>
+    <div class="docstats" id="docstats">Loading word list…</div>
+    <div class="btnrow">
+      <button class="btn" id="checkdoc" type="button">🔍 Check Document (step-through)</button>
+      <label style="align-self:center;font-size:.9em"><input type="checkbox" id="actoggle"> AutoCorrect common typos</label>
+    </div>
+    <div class="btnrow">
+      <button class="btn ghost" id="persbtn" type="button">📖 My Dictionary</button>
+      <button class="btn ghost" id="exportbtn" type="button">⬇ Export my words</button>
+    </div>
+    <div id="perslist" style="display:none" aria-label="Personal dictionary"></div>
+  </section>
+
+  <section class="card" aria-label="Learning">
+    <h2><span class="n">3</span>It learns you</h2>
+    <p style="margin-top:0">This checker remembers <b>your</b> word patterns on <b>this device</b> — words you add, corrections you pick, words you use most. Your picks always rank first in suggestions. Nothing personal ever leaves your device; the shared pattern pack is compiled in the background from the Signature library.</p>
+    <div class="btnrow">
+      <a class="btn gold" href="download.html" style="text-decoration:none">⬇ Get the downloadable tool</a>
+      <a class="btn ghost" href="guide.html" style="text-decoration:none">📖 How it works</a>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Word archive">
+    <h2>📚 The Word Archive</h2>
+    <p style="margin-top:0">Every word the checker knows, A–Z, marching to one million. New words the system learns can grow into word-patents in the Spec Catalog.</p>
+    <a class="btn ghost" href="words.html" style="text-decoration:none">Open the archive</a>
+  </section>
+</main>
+
+<div id="sugpop" role="dialog" aria-label="Spelling suggestions"></div>
+<div id="dlg-back"><div id="dlg" role="dialog" aria-label="Check document"></div></div>
+
+<nav class="jahnet" role="navigation" aria-label="JAH Network">
+  <div class="t">THE JAH NETWORK</div>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-math">1 Signature Math</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-calculator">2 Calculator</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-dictionary">3 Dictionary</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-wiki">4 JAH Wiki</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-n-wiki-leaks">5 JAH-N Wiki</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-llama">6 Llama</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-ai-models">7 Phone Book</a>
+  <a href="https://justinahiggins614-cmyk.github.io/cyber-patent-catalog">8 Patents</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-one-archive/specs.html">9 Specs</a>
+  <a href="https://justinahiggins614-cmyk.github.io/jah-computer-systems">10 PCs</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-books">11 Books</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-comics">12 Comics</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-newspapers">13 News</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-backend">14 Mix Lab</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-boundless-generators">15 Generators</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-ai-mixlab">16 AI Mix</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-ai-olypics">17 Olympics</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-chip-maker">18 Chips</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-app-archive">19 Apps</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-ai-robot-matcher">20 Robots</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-experiment-solver">21 Lab</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-ai-image-video-maker">22 Pixel</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-ai-song-maker">23 Music</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-fixit">24 Fix-It</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-university">25 University</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-earth">26 Earth</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-flight-school">27 Flight</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-game-store">28 Games</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-website-creator">29 Sites</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-antivirus">30 Antivirus</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-os-updater">31 OS Updater</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-space-mapping">32 Space</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-cookbook">33 Cookbook</a>
+  <span class="here">34 Spell Check · YOU ARE HERE</span>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-image-grid-measure">35 Grid Measure</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-cyber-mega-mall">36 Cyber Mall</a>
+  <a href="https://justinahiggins614-cmyk.github.io/signature-3d-print">37 3D Mall</a>
+</nav>
+<footer>The Signature Spell Check · Website 36 · words stay on your device · <a href="sitemap.xml">sitemap</a></footer>
+<script src="js/spell.js"></script>
+<script>
+SigSpell.ensureData().then(function(){
+  var el=document.getElementById("wordcount");
+  if(el)el.textContent=Number(SigSpell.count()).toLocaleString("en-US");
+});
+</script>
+</body>
+</html>

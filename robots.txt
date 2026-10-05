@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://justinahiggins614-cmyk.github.io/signature-spell-check/sitemap.xml

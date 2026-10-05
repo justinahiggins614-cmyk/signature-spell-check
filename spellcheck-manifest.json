@@ -1,0 +1,13 @@
+{
+ "manifest_id": "JAH-SPELL-MANIFEST",
+ "site": "The Signature Spell Check",
+ "site_number": 36,
+ "updated": "2026-10-05T15:42:17Z",
+ "total_words": 96921,
+ "goal": 1000000,
+ "remaining_to_goal": 903079,
+ "progress": "96921 / 1000000 WORDS",
+ "wordlist": "data/words.txt",
+ "compiled_patterns": "data/compiled-patterns.json",
+ "for_specs": "data/for-specs/"
+}

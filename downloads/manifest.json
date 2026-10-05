@@ -1,0 +1,25 @@
+{
+ "parts": [
+  {
+   "file": "words-part-1.txt",
+   "bytes": 189317
+  },
+  {
+   "file": "words-part-2.txt",
+   "bytes": 185848
+  },
+  {
+   "file": "words-part-3.txt",
+   "bytes": 191184
+  },
+  {
+   "file": "words-part-4.txt",
+   "bytes": 190757
+  },
+  {
+   "file": "words-part-5.txt",
+   "bytes": 185781
+  }
+ ],
+ "total_words": 96922
+}
