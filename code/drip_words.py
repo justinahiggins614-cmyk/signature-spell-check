@@ -70,7 +70,7 @@ def main():
     if size > 800*1024*1024:
         print("GUARD: data over 800MB, not pushing"); sys.exit(2)
     r = sh('git add -A && git -c user.name="JAH System" -c user.email="jah@spellcheck.local" '
-           'commit -qm "Spellcheck drip: +%d words (%d total)" && git push -q origin main' % (len(new), total))
+           'commit -qm "Spellcheck drip: +%d words (%d total)" && git push -q origin master' % (len(new), total))
     print("drip done: +%d words, %d total" % (len(new), total))
 
 if __name__ == "__main__":
