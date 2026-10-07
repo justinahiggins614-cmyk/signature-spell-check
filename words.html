@@ -69,7 +69,8 @@ SigSpell.ensureData().then(function(){
 var q=document.getElementById("azq"),go=document.getElementById("azgo"),out=document.getElementById("azresult");
 function dosearch(){
   var w=(q.value||"").trim().toLowerCase();if(!w)return;
-  SigSpell.ensureData().then(function(){
+  SigSpell.ensureData().then(function(ok){
+    if(!ok){out.innerHTML='<div class="result bad">Word list failed to load — check your connection and reload.</div>';return;}
     out.innerHTML=SigSpell.isWord(w)
       ?'<div class="result ok"><b>“'+w+'”</b> is in the archive.</div>'
       :'<div class="result bad"><b>“'+w+'”</b> is not in the archive yet.</div>';
