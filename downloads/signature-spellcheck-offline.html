@@ -427,7 +427,8 @@ function onReady(){
   var tb=document.getElementById("typebar"),go=document.getElementById("typego"),res=document.getElementById("typeresult");
   function checkBar(){
     var w=(tb.value||"").trim();if(!w)return;
-    ensureData().then(function(){
+    ensureData().then(function(ok){
+      if(!ok){res.className="result bad";res.innerHTML="Word list failed to load — check your connection and reload.";return;}
       var lw=norm(w).replace(/'+$/,"");
       if(isWord(w)){
         usefreq[lw]=(usefreq[lw]||0)+1;saveLearn();
@@ -454,7 +455,7 @@ function onReady(){
   if(tb)tb.addEventListener("keydown",function(e){if(e.key==="Enter")checkBar();});
   /* buttons */
   var cd=document.getElementById("checkdoc");
-  if(cd)cd.addEventListener("click",function(){ensureData().then(dlgShow);});
+  if(cd)cd.addEventListener("click",function(){ensureData().then(function(ok){if(!ok){flashBar("Word list failed to load — check your connection and reload.");return;}dlgShow();});});
   var ac=document.getElementById("actoggle");
   if(ac){ac.checked=acOn;ac.addEventListener("change",function(){acOn=ac.checked;LS.set("sigspell.autocorrect",acOn);});}
   var pd=document.getElementById("persbtn"),pl=document.getElementById("perslist");
