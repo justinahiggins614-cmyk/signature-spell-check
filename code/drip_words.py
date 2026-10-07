@@ -15,24 +15,40 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 DATA = os.path.join(ROOT, "data")
 DICT = os.path.expanduser("~/workspace/jah-dictionary/data/definitions/all.jsonl")
+# headwords.csv is rebuilt after all.jsonl by the dictionary drip and carries
+# newer headwords that never landed in all.jsonl — read both, never invent.
+DICT_CSV = os.path.expanduser("~/workspace/jah-dictionary/data/headwords.csv")
 GOAL = 1_000_000
 
 def sh(cmd):
     return subprocess.run(cmd, shell=True, capture_output=True, text=True)
 
+def norm(w):
+    w = (w or "").strip()
+    if re.fullmatch(r"[A-Za-z][A-Za-z'\-]*", w):
+        w = w.lower().strip("'-")
+        if len(w) >= 2 or w in ("a", "i"):
+            if "'" not in w: return w
+    return None
+
 def dict_words():
     out = set()
-    if not os.path.exists(DICT): return out
-    for line in open(DICT, encoding="utf-8", errors="ignore"):
-        line = line.strip()
-        if not line: continue
-        try: r = json.loads(line)
-        except: continue
-        w = r.get("w", "")
-        if re.fullmatch(r"[A-Za-z][A-Za-z'\-]*", w):
-            w = w.lower().strip("'-")
-            if len(w) >= 2 or w in ("a", "i"):
-                if "'" not in w: out.add(w)
+    if os.path.exists(DICT):
+        for line in open(DICT, encoding="utf-8", errors="ignore"):
+            line = line.strip()
+            if not line: continue
+            try: r = json.loads(line)
+            except: continue
+            w = norm(r.get("w", ""))
+            if w: out.add(w)
+    if os.path.exists(DICT_CSV):
+        import csv
+        try:
+            for row in csv.DictReader(open(DICT_CSV, encoding="utf-8", errors="ignore")):
+                w = norm(row.get("word"))
+                if w: out.add(w)
+        except Exception:
+            pass
     return out
 
 def main():
